@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  background: pink;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+h1 {
+  color: red;
+  margin-top: 60px;
+}
+
+button {
+  padding: 15px 35px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  margin: 20px;
+}
+
+#yes {
+  background: red;
+  color: white;
+}
+
+#no {
+  background: white;
+  color: red;
+  position: absolute;
+}
+
+#love {
+  display: none;
+  margin-top: 40px;
+}
+
+.songbtn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 25px;
+  background:#ff004f;
+  color:white;
+  text-decoration:none;
+  border-radius:25px;
+  font-size:18px;
+}
+
+.hearts {
+  position: fixed;
+  top: -10px;
+  font-size: 24px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Will you be my Valentine, Kavi? ❤️</h1>
+
+<button id="yes" onclick="yesClick()">YES ❤️</button>
+<button id="no" onmouseover="moveNo()">NO</button>
+
+<div id="love">
+  <h2>Yaaahhh Best Decision 😍❤️</h2>
+  <p>
+    Every moment with you is special 🥹💖<br>
+    You are my happiness, my world 🌍❤️<br>
+    I love you forever 💐
+  </p>
+
+  <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="260"><br><br>
+
+  <!-- ✅ Song will start from 0:40 -->
+  <a class="songbtn" href="https://youtu.be/glejzVr2oPQ?t=40s" target="_blank">
+    ▶ Play Our Song 🎵
+  </a>
+</div>
+
+<script>
+function moveNo() {
+  let x = Math.random() * (window.innerWidth - 120);
+  let y = Math.random() * (window.innerHeight - 120);
+  document.getElementById("no").style.left = x + "px";
+  document.getElementById("no").style.top = y + "px";
+}
+
+function yesClick() {
+  document.querySelector("h1").style.display = "none";
+  document.getElementById("yes").style.display = "none";
+  document.getElementById("no").style.display = "none";
+  document.getElementById("love").style.display = "block";
+}
+
+// Falling hearts animation
+for (let i = 0; i < 25; i++) {
+  let heart = document.createElement("div");
+  heart.innerHTML = "&#10084;";
+  heart.className = "hearts";
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
